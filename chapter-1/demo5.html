@@ -8,7 +8,13 @@
 
 <!--view层-->
 <div id="app">
-    输入的文本：<input type="text" v-model="message">{{message}}
+    下拉框：<select v-model="selected">
+        <option value="" disabled>--请选择--</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>value:{{selected}}</span>
 </div>
 
 <!--导入vue.js-->
@@ -19,7 +25,7 @@
     var vm = new Vue({
         el: "#app",
         data: {
-            message: "hello vue"
+            selected: ""
         }
     });
 </script>

@@ -1,13 +1,12 @@
 <template>
-    <h1>主页</h1>
+    <h1>首页</h1>
 </template>
 
 <script>
     export default {
-        name: 'Main'
+        name: "Main"
     }
 </script>
 
 <style scoped>
-
 </style>

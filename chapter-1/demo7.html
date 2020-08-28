@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- v-cloak 解决闪烁问题 与课程无关-->
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="vue" v-cloak>
+    <div>{{info.name}}</div>
+    <div>{{info.address.street}}</div>
+    <a v-bind:href="info.url">dian wo</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#vue",
+        /*data: {
+            data(){
+                return {
+                    info:{//接收为对象
+                        name:null,
+                        address:{
+                            country:null,
+                            city:null,
+                            street:null
+                        },
+                        url:null
+                    }
+                }
+            }
+        },*/
+        data(){
+            return {
+                info:{//接收为对象
+                    name:null,
+                    address:{
+                        country:null,
+                        city:null,
+                        street:null
+                    },
+                    url:null
+                }
+            }
+        },
+        mounted(){//钩子函数  加载ajax时
+
+            //箭头指向函数要做的事情
+            //axios.get('../data.json').then(response => (console.log(response.data)));
+            axios.get('../data.json').then(response => (this.info = response.data));
+        }
+    });
+</script>
+
+
+</body>
+</html>
